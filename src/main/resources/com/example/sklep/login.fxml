@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sklep.LoginController">
+   <children>
+      <Label layoutX="169.0" layoutY="29.0" text="Ekran logowania">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+      <Label layoutX="38.0" layoutY="146.0" text="Login:">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="212.0" text="Hasło:">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tf_login" layoutX="158.0" layoutY="145.0" prefHeight="54.0" prefWidth="296.0" promptText="Login" />
+      <TextField fx:id="tf_password" layoutX="158.0" layoutY="218.0" prefHeight="54.0" prefWidth="296.0" promptText="Hasło" />
+      <Button fx:id="button_login" layoutX="158.0" layoutY="289.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="296.0" text="Zaloguj" />
+      <Button fx:id="button_sign_up" layoutX="158.0" layoutY="327.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="296.0" text="Utwórz konto" />
+   </children>
+</AnchorPane>
