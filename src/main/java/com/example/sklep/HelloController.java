@@ -5,7 +5,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -21,25 +20,22 @@ public class HelloController implements Initializable {
     private TextField tf_username;
     @FXML
     private TextField tf_password;
-    @FXML
-    private TextField tf_name;
 
-
-     @Override
-    public void initialize(URL location, ResourceBundle resource)
-     {
+    @Override
+    public void initialize(URL location, ResourceBundle resourceBundle) {
         button_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-               DBUtils.logInUser(event,tf_username.getText(),tf_password.getText());
+                PasswordHasher passwordHasher = new PasswordHasher();
+                DBUtils.logInUser(event, tf_username.getText(), tf_password.getText(), passwordHasher);
             }
         });
 
         button_sign_up.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event,"sign-up.fxml","Sign up",null,null);
+                DBUtils.changeScene(event, "sign-up.fxml", "Sign up", null, null);
             }
         });
-     }
+    }
 }

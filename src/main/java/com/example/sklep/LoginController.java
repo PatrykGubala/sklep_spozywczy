@@ -21,22 +21,20 @@ public class LoginController implements Initializable {
     @FXML
     private TextField tf_password;
 
-
     @Override
-    public void initialize(URL location, ResourceBundle resource)
-    {
+    public void initialize(URL location, ResourceBundle resource) {
         button_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.logInUser(event,tf_login.getText(),tf_password.getText());
-                //DBUtils.changeScene(event,"logged-in.fxml","Zalogowano",null,null);
+                PasswordHasher passwordHasher = new PasswordHasher();
+                DBUtils.logInUser(event, tf_login.getText(), tf_password.getText(), passwordHasher);
             }
         });
 
         button_sign_up.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event,"sign-up.fxml","Sign up",null,null);
+                DBUtils.changeScene(event, "sign-up.fxml", "Sign up", null, null);
             }
         });
     }
