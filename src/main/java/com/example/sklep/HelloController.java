@@ -21,6 +21,8 @@ public class HelloController implements Initializable {
     private TextField tf_username;
     @FXML
     private TextField tf_password;
+    @FXML
+    private TextField tf_name;
 
 
      @Override

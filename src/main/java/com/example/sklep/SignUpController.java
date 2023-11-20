@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
+import javafx.scene.control.CheckBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,6 +24,8 @@ public class SignUpController implements Initializable
     private TextField tf_password_first;
     @FXML
     private TextField tf_password_second;
+    @FXML
+    private CheckBox adminCheckBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -32,7 +34,7 @@ public class SignUpController implements Initializable
             @Override
             public void handle(ActionEvent event)
             {
-                DBUtils.signUpUser(event,tf_login.getText(),tf_password_first.getText(),tf_name.getText(),tf_surname.getText());
+                DBUtils.signUpUser(event,tf_login.getText(),tf_password_first.getText(),tf_name.getText(),tf_surname.getText(), adminCheckBox.isSelected());
             }
         });
     }

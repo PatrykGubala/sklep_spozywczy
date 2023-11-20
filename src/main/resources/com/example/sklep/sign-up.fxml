@@ -11,6 +11,7 @@
             <Font size="36.0" />
          </font>
       </Label>
+      <CheckBox fx:id="adminCheckBox" layoutX="471.0" layoutY="225.0" text="Admin" />
       <TextField fx:id="tf_name" layoutX="121.0" layoutY="83.0" prefHeight="54.0" prefWidth="296.0" promptText="Imię" />
       <TextField fx:id="tf_surname" layoutX="121.0" layoutY="145.0" prefHeight="54.0" prefWidth="296.0" promptText="Nazwisko" />
       <TextField fx:id="tf_login" layoutX="121.0" layoutY="208.0" prefHeight="54.0" prefWidth="296.0" promptText="Login" />
