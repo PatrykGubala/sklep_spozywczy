@@ -86,7 +86,7 @@ public class DBUtils {
 
 
 
-    public static void signUpUser(ActionEvent event, String login, String password, String name, String surname) {
+    public static void signUpUser(ActionEvent event, String login, String password, String name, String surname, Boolean isAdmin) {
         Connection connection = null;
         PreparedStatement psInsert = null;
         PreparedStatement psIsTaken = null;
@@ -98,7 +98,6 @@ public class DBUtils {
                     "jdbc:mysql://localhost:3306/sklep", "root", ""
             );
 
-
             int lastId = getNextId("uzytkownik", "id");
 
             psIsTaken = connection.prepareStatement("SELECT * FROM uzytkownik WHERE login = ?");
@@ -109,7 +108,7 @@ public class DBUtils {
                 System.out.println("ERROR USER EXISTS");
             } else {
 
-                int newId = lastId + 1;
+                int newId = lastId;
 
                 psInsert = connection.prepareStatement("INSERT INTO uzytkownik (id, login, haslo, imie, nazwisko, admin) VALUES (?, ?, ?, ?, ?, ?)");
                 psInsert.setInt(1, newId);
@@ -117,7 +116,7 @@ public class DBUtils {
                 psInsert.setString(3, password);
                 psInsert.setString(4, name);
                 psInsert.setString(5, surname);
-                psInsert.setBoolean(6, true);
+                psInsert.setBoolean(6, isAdmin); // Use the value of isAdmin
                 psInsert.executeUpdate();
 
                 changeScene(event, "logged-in.fxml", "Zalogowano", name, surname);
