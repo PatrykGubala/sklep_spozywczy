@@ -151,7 +151,7 @@ public class DBUtils {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/sklep", "root", ""
             );
-            psSelect = connection.prepareStatement("select haslo from uzytkownik where login = ?");
+            psSelect = connection.prepareStatement("select haslo,imie,nazwisko from uzytkownik where login =?");
             psSelect.setString(1,login);
             resultSet = psSelect.executeQuery();
 
@@ -164,9 +164,12 @@ public class DBUtils {
                 while(resultSet.next())
                 {
                     String retrivedPassword = resultSet.getString("haslo");
+                    String name = resultSet.getString("imie");
+                    String surname = resultSet.getString("nazwisko");
                     if(retrivedPassword.equals(password))
                     {
-                        changeScene(event,"logged-in.fxml","Zalogowano",login,retrivedPassword);
+
+                        changeScene(event, "logged-in.fxml", "Zalogowano", name, surname);
                     }
                     else
                     {
