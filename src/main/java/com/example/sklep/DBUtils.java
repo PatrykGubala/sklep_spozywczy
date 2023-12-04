@@ -133,7 +133,7 @@ public class DBUtils {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/sklep", "root", ""
             );
-            psSelect = connection.prepareStatement("select haslo,sol,imie,nazwisko from uzytkownik where login =?");
+            psSelect = connection.prepareStatement("select haslo,sol,imie,nazwisko, admin from uzytkownik where login =?");
             psSelect.setString(1, login);
             resultSet = psSelect.executeQuery();
 
@@ -145,9 +145,13 @@ public class DBUtils {
                     byte[] retrievedSalt = Base64.getDecoder().decode(resultSet.getString("sol"));
                     String name = resultSet.getString("imie");
                     String surname = resultSet.getString("nazwisko");
-
+                    boolean admin = resultSet.getBoolean("admin");
                     if (passwordHasher.matches(password, retrievedPassword, retrievedSalt)) {
-                        changeScene(event, "logged-in.fxml", "Zalogowano", name, surname);
+
+                        if(admin) {
+                            changeScene(event, "logged-in-admin.fxml", "Zalogowano", name, surname);
+                        }
+                        else changeScene(event, "logged-in.fxml", "Zalogowano", name, surname);
                     } else {
                         System.out.println("WRONG PASSWORD");
                     }

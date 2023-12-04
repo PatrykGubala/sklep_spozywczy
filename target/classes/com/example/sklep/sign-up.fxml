@@ -1,22 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sklep.SignUpController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sklep.SignUpController">
    <children>
-      <Label layoutX="184.0" layoutY="29.0" text="Podaj dane:">
+      <Label layoutX="157.0" layoutY="14.0" text="Podaj dane:">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
       <CheckBox fx:id="adminCheckBox" layoutX="471.0" layoutY="225.0" text="Admin" />
-      <TextField fx:id="tf_name" layoutX="121.0" layoutY="83.0" prefHeight="54.0" prefWidth="296.0" promptText="Imię" />
-      <TextField fx:id="tf_surname" layoutX="121.0" layoutY="145.0" prefHeight="54.0" prefWidth="296.0" promptText="Nazwisko" />
-      <TextField fx:id="tf_login" layoutX="121.0" layoutY="208.0" prefHeight="54.0" prefWidth="296.0" promptText="Login" />
-      <TextField fx:id="tf_password_first" layoutX="121.0" layoutY="271.0" prefHeight="54.0" prefWidth="296.0" promptText="Hasło" />
-      <TextField fx:id="tf_password_second" layoutX="121.0" layoutY="331.0" prefHeight="54.0" prefWidth="296.0" promptText="Powtórz hasło" />
+      <TextField fx:id="tf_name" layoutX="152.0" layoutY="84.0" prefHeight="54.0" prefWidth="296.0" promptText="Imię" />
+      <TextField fx:id="tf_surname" layoutX="152.0" layoutY="146.0" prefHeight="54.0" prefWidth="296.0" promptText="Nazwisko" />
+      <TextField fx:id="tf_login" layoutX="152.0" layoutY="207.0" prefHeight="54.0" prefWidth="296.0" promptText="Login" />
       <Button fx:id="button_sign_up" layoutX="471.0" layoutY="196.0" mnemonicParsing="false" text="Utwórz konto" />
+      <Label layoutX="58.0" layoutY="97.0" text="Imię:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="159.0" text="Nazwisko:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="220.0" text="Login:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="285.0" text="Hasło:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="348.0" prefHeight="30.0" prefWidth="132.0" text="Powtórz hasło:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="tf_password_first" layoutX="152.0" layoutY="273.0" prefHeight="53.0" prefWidth="296.0" promptText="Hasło" />
+      <PasswordField fx:id="tf_password_second" layoutX="152.0" layoutY="336.0" prefHeight="54.0" prefWidth="296.0" promptText="Hasło" />
+      <Button fx:id="button_go_back" layoutX="471.0" layoutY="161.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Cofnij" />
    </children>
 </AnchorPane>
