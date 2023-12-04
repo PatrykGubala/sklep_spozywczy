@@ -5,29 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b774e8-4747-48c1-b9c8-f8ab6ba1da51" name="Changes" comment="podłączenie bazy + GUI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/PasswordHasher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/logged-in-admin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/sklep/DBUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/DBUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sklep/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sklep/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/sign-up.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/DBUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sklep/DBUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/SignUpController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sklep/SignUpController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/SignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sklep/SignUpController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sklep/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sklep/sign-up.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +31,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -63,23 +56,39 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/123/Desktop/PROJ/sklep",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "jdk.selected.JAVA_MODULE": "19",
+    "last_opened_file_path": "C:/Users/um/Desktop/PIP_chrobot/projekt/sklep-spozywczy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.35895032",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.sklep" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DBUtilsTest.signUpUser_withNullLogin_shouldThrowException">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sklep.HelloApplication" />
       <module name="sklep" />
       <extension name="coverage">
@@ -92,9 +101,93 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DBUtilsTest.changeScene_withNonNullNameAndSurname_shouldLoadLoggedController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sklep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sklep.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.sklep" />
+      <option name="MAIN_CLASS_NAME" value="com.example.sklep.DBUtilsTest" />
+      <option name="METHOD_NAME" value="changeScene_withNonNullNameAndSurname_shouldLoadLoggedController" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBUtilsTest.getNextId_withValidInput_shouldReturnNextId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sklep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sklep.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.sklep" />
+      <option name="MAIN_CLASS_NAME" value="com.example.sklep.DBUtilsTest" />
+      <option name="METHOD_NAME" value="getNextId_withValidInput_shouldReturnNextId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBUtilsTest.logInUser_withNullPasswordHasher_shouldThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sklep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sklep.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.sklep" />
+      <option name="MAIN_CLASS_NAME" value="com.example.sklep.DBUtilsTest" />
+      <option name="METHOD_NAME" value="logInUser_withNullPasswordHasher_shouldThrowException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBUtilsTest.signUpUser_withNonExistingLogin_shouldAddUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sklep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sklep.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.sklep" />
+      <option name="MAIN_CLASS_NAME" value="com.example.sklep.DBUtilsTest" />
+      <option name="METHOD_NAME" value="signUpUser_withNonExistingLogin_shouldAddUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBUtilsTest.signUpUser_withNullLogin_shouldThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sklep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sklep.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.sklep" />
+      <option name="MAIN_CLASS_NAME" value="com.example.sklep.DBUtilsTest" />
+      <option name="METHOD_NAME" value="signUpUser_withNullLogin_shouldThrowException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.DBUtilsTest.signUpUser_withNullLogin_shouldThrowException" />
+        <item itemvalue="JUnit.DBUtilsTest.logInUser_withNullPasswordHasher_shouldThrowException" />
+        <item itemvalue="JUnit.DBUtilsTest.signUpUser_withNonExistingLogin_shouldAddUser" />
+        <item itemvalue="JUnit.DBUtilsTest.getNextId_withValidInput_shouldReturnNextId" />
+        <item itemvalue="JUnit.DBUtilsTest.changeScene_withNonNullNameAndSurname_shouldLoadLoggedController" />
       </list>
     </recent_temporary>
   </component>
