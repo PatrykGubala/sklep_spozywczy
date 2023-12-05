@@ -74,7 +74,7 @@ public class DBUtils {
         return nextId;
     }
 
-    public static void signUpUser(ActionEvent event, String login, String password, byte[] salt, String name, String surname, Boolean isAdmin) {
+    public static void signUpUser(ActionEvent event, String login, String password, String salt, String name, String surname, Boolean isAdmin) {
         Connection connection = null;
         PreparedStatement psInsert = null;
         PreparedStatement psIsTaken = null;
@@ -101,7 +101,7 @@ public class DBUtils {
                 psInsert.setInt(1, newId);
                 psInsert.setString(2, login);
                 psInsert.setString(3, password);
-                psInsert.setString(4, Base64.getEncoder().encodeToString(salt));
+                psInsert.setString(4, salt);
                 psInsert.setString(5, name);
                 psInsert.setString(6, surname);
                 psInsert.setBoolean(7, isAdmin);
@@ -142,11 +142,11 @@ public class DBUtils {
             } else {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("haslo");
-                    byte[] retrievedSalt = Base64.getDecoder().decode(resultSet.getString("sol"));
+                    String retrievedSalt = resultSet.getString("sol");
                     String name = resultSet.getString("imie");
                     String surname = resultSet.getString("nazwisko");
                     boolean admin = resultSet.getBoolean("admin");
-                    if (passwordHasher.matches(password, retrievedPassword, retrievedSalt)) {
+                    if (passwordHasher.matches(password, retrievedPassword)) {
 
                         if(admin) {
                             changeScene(event, "logged-in-admin.fxml", "Zalogowano", name, surname);
