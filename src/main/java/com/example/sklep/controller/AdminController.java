@@ -4,6 +4,7 @@ import com.example.sklep.HelloApplication;
 import com.example.sklep.model.DBUtils;
 import com.example.sklep.model.Product;
 import com.example.sklep.model.SessionManager;
+import com.example.sklep.model.User;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
@@ -28,6 +29,8 @@ public class AdminController implements Initializable {
 
     @FXML
     private Button button_logout;
+    @FXML
+    private Label label_name;
 
     @FXML
     private Button button_addSeller;
@@ -61,6 +64,7 @@ public class AdminController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         products = DBUtils.getProductListFromDatabase(false);
         products.addAll(DBUtils.getProductListFromDatabase(true));
+        updateLabelNameAndSurname();
 
         productsTableView.setItems(products);
 
@@ -132,5 +136,24 @@ public class AdminController implements Initializable {
             e.printStackTrace();
         }
 
+    }
+    private void updateLabelNameAndSurname() {
+        try {
+            User loggedInUser = SessionManager.getInstance().getLoggedInUser();
+            if (label_name != null) {
+                if (loggedInUser != null) {
+                    String loggedInUserName = loggedInUser.getName();
+                    String loggedInUserSurname = loggedInUser.getSurname();
+
+                    label_name.setText("Zalogowano na koncie kierownika: " + loggedInUserName +" "+loggedInUserSurname);
+                } else {
+                    label_name.setText("Nie zalogowano");
+                }
+            } else {
+                System.err.println("label_name is null");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

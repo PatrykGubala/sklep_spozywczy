@@ -3,6 +3,7 @@ package com.example.sklep.controller;
 import com.example.sklep.model.DBUtils;
 import com.example.sklep.model.Product;
 import com.example.sklep.model.SessionManager;
+import com.example.sklep.model.User;
 import com.example.sklep.view.CurrentWindow;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -60,6 +61,9 @@ public class SellerController implements Initializable {
     private Label sellerStatusLabel;
 
     @FXML
+    private Label label_name;
+
+    @FXML
     private TableColumn<Product, Void> updateColumn;
 
     private SessionManager sessionManager = SessionManager.getInstance();
@@ -68,6 +72,8 @@ public class SellerController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         sellerStatusLabel.setText("Welcome, Seller!");
+
+        updateLabelNameAndSurname();
 
         ObservableList<Product> products = DBUtils.getProductListFromDatabase(false);
         ObservableList<Product> expiredProducts = DBUtils.getProductListFromDatabase(true);
@@ -148,6 +154,25 @@ public class SellerController implements Initializable {
         sessionManager.getViewFactory().getCurrentWindowProperty().set(CurrentWindow.LOGIN);
 
 
+    }
+    private void updateLabelNameAndSurname() {
+        try {
+            User loggedInUser = SessionManager.getInstance().getLoggedInUser();
+            if (label_name != null) {
+                if (loggedInUser != null) {
+                    String loggedInUserName = loggedInUser.getName();
+                    String loggedInUserSurname = loggedInUser.getSurname();
+
+                    label_name.setText("Zalogowano na koncie sprzedawcy: " + loggedInUserName +" "+loggedInUserSurname);
+                } else {
+                    label_name.setText("Nie zalogowano");
+                }
+            } else {
+                System.err.println("label_name is null");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 

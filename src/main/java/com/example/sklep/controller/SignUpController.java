@@ -17,8 +17,7 @@ import javafx.scene.input.MouseEvent;
 import net.synedra.validatorfx.Validator;
 
 public class SignUpController implements Initializable {
-    @FXML
-    private CheckBox adminCheckBox;
+
 
     @FXML
     private Button button_go_back;

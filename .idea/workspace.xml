@@ -5,28 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b774e8-4747-48c1-b9c8-f8ab6ba1da51" name="Changes" comment="podłączenie bazy + GUI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/LoginController2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SellerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SignUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/DatabaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/ScreenManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/SessionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/view/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sklep/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sklep/HelloApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/HelloController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/HelloController$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/LoginController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/LoginController$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sklep/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sklep/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SellerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SellerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sklep/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sklep/seller.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/seller.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sklep/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/sign-up.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sklep/DBUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sklep/DBUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sklep/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sklep/sign-up.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +63,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "C:/Users/patry/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "last_opened_file_path": "C:/Users/123/Desktop/projektpip/sklep-spozywczy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,6 +77,10 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\123\Desktop\projektpip\sklep-spozywczy\src\test\java\com\example\sklep" />
+      <recent name="C:\Users\123\Desktop\projektpip\sklep-spozywczy\src\main\resources\com\example\sklep" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
