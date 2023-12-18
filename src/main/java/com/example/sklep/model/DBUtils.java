@@ -17,6 +17,9 @@ import java.sql.*;
 import java.time.LocalDate;
 
 public class DBUtils {
+
+
+
     public static int getNextId(String tableName, String idColumnName) {
         int nextId = 0;
         Connection connection = null;
@@ -38,7 +41,7 @@ public class DBUtils {
                 nextId = maxId + 1;
             }
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Handle exceptions more gracefully in a real application
         } finally {
             try {
                 if (resultSet != null) resultSet.close();
@@ -198,8 +201,9 @@ public class DBUtils {
             }
 
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Handle exceptions more gracefully in a real application
         } finally {
+            // Close resources
         }
 
         return productList;
@@ -222,8 +226,9 @@ public class DBUtils {
             preparedStatement.executeUpdate();
 
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Handle exceptions more gracefully in a real application
         } finally {
+            // Close resources
             try {
                 if (preparedStatement != null) preparedStatement.close();
                 if (connection != null) connection.close();
@@ -245,6 +250,7 @@ public class DBUtils {
                     "jdbc:mysql://localhost:3306/sklep", "root", ""
             );
 
+            // Check if the product with the same name and expiration date already exists
             psUpdate = connection.prepareStatement("UPDATE produkty SET ilość = ilość + ? WHERE nazwa_produktu = ? AND data_ważności = ?");
             psUpdate.setInt(1, product.getQuantity());
             psUpdate.setString(2, product.getProductName());
@@ -253,13 +259,13 @@ public class DBUtils {
             int updatedRows = psUpdate.executeUpdate();
 
             if (updatedRows == 0) {
-                int nextProductId = getNextId("produkty", "id_produktu");
-                psInsert = connection.prepareStatement("INSERT INTO produkty (id_produktu, nazwa_produktu, data_ważności, kategoria, ilość) VALUES (?, ?, ?, ?, ?)");
-                psInsert.setInt(1, nextProductId);
-                psInsert.setString(2, product.getProductName());
-                psInsert.setDate(3, Date.valueOf(product.getExpirationDate()));
-                psInsert.setString(4, product.getCategory());
-                psInsert.setInt(5, product.getQuantity());
+                // Product doesn't exist, insert a new product
+                psInsert = connection.prepareStatement("INSERT INTO produkty (nazwa_produktu, data_ważności, kategoria, ilość) VALUES ( ?, ?, ?, ?)");
+
+                psInsert.setString(1, product.getProductName());
+                psInsert.setDate(2, Date.valueOf(product.getExpirationDate()));
+                psInsert.setString(3, product.getCategory());
+                psInsert.setInt(4, product.getQuantity());
                 psInsert.executeUpdate();
             }
         } catch (ClassNotFoundException | SQLException e) {

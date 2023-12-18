@@ -17,5 +17,7 @@ module com.example.sklep {
     exports com.example.sklep.controller;
     exports com.example.sklep.model;
     exports com.example.sklep.utilities;
+    exports com.example.sklep.controller.command;
+    opens com.example.sklep.controller.command to javafx.fxml;
 
 }

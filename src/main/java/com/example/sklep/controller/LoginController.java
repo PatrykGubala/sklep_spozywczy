@@ -40,7 +40,6 @@ public class LoginController {
         DBUtils.logInUser(
                 tf_login.getText(),
                 tf_password.getText()
-
         );
     }
 
