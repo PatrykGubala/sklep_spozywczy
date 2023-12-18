@@ -19,21 +19,17 @@
                   </font>
               </Label>
       
-              <!-- Add Seller Information Section -->
               <Label layoutX="40.0" layoutY="50.0" text="Seller Information:" />
               <Label layoutX="40.0" layoutY="80.0" text="Username: {sellerUsername}" />
               <Label layoutX="40.0" layoutY="110.0" text="Name: {sellerName}" />
-              <!-- Add more information labels as needed -->
-      
+
               <TableView fx:id="productsTableView" layoutX="40.0" layoutY="50.0" prefHeight="235.0" prefWidth="720.0">
-                  <!-- Define TableColumns -->
                   <columns>
                       <TableColumn fx:id="productNameColumn" prefWidth="105.0" text="Product Name" />
                       <TableColumn fx:id="expirationDateColumn" prefWidth="110.0" text="Expiration Date" />
                   <TableColumn fx:id="categoryColumn" prefWidth="110.0" text="Category" />
                   <TableColumn fx:id="quantityColumn" prefWidth="110.0" text="Quantity" />
                   <TableColumn fx:id="updateColumn" prefWidth="110.0" text="Update" />
-                      <!-- Add more columns as needed -->
                   </columns>
               </TableView>
       

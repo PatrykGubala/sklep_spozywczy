@@ -2,6 +2,7 @@ package com.example.sklep;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.example.sklep.model.PasswordHasher;
 import org.junit.jupiter.api.Test;
 
 class PasswordHasherTest {

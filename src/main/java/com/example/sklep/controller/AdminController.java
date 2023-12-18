@@ -59,8 +59,8 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         products = DBUtils.getProductListFromDatabase(false);
+        products.addAll(DBUtils.getProductListFromDatabase(true));
 
         productsTableView.setItems(products);
 
@@ -119,7 +119,6 @@ public class AdminController implements Initializable {
     @FXML
     private void handleAddProduct() {
         System.out.println("Add Product clicked");
-
         try {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("order.fxml"));
             Scene scene = new Scene(loader.load());
@@ -128,15 +127,10 @@ public class AdminController implements Initializable {
             addProductStage.setTitle("Add Product");
             addProductStage.initModality(Modality.APPLICATION_MODAL);
             addProductStage.setScene(scene);
-
-
             addProductStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
 
     }
 }

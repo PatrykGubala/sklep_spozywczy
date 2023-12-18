@@ -12,7 +12,6 @@
       <AnchorPane prefHeight="600.0" prefWidth="800.0">
           <children>
               <TableView fx:id="productsTableView" layoutX="40.0" layoutY="50.0" prefHeight="300.0" prefWidth="720.0">
-                  <!-- Define TableColumns -->
                   <columns>
                       <TableColumn fx:id="productNameColumn" prefWidth="150.0" text="Product Name" />
                       <TableColumn fx:id="expirationDateColumn" prefWidth="150.0" text="Expiration Date" />
