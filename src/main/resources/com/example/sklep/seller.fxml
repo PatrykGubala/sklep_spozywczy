@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sklep.controller.SellerController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+          <children>
+              <Label layoutX="351.0" layoutY="14.0" text="Seller Screen">
+                  <font>
+                      <Font size="18.0" />
+                  </font>
+              </Label>
+      
+              <!-- Add Seller Information Section -->
+              <Label layoutX="40.0" layoutY="50.0" text="Seller Information:" />
+              <Label layoutX="40.0" layoutY="80.0" text="Username: {sellerUsername}" />
+              <Label layoutX="40.0" layoutY="110.0" text="Name: {sellerName}" />
+              <!-- Add more information labels as needed -->
+      
+              <TableView fx:id="productsTableView" layoutX="40.0" layoutY="50.0" prefHeight="235.0" prefWidth="720.0">
+                  <!-- Define TableColumns -->
+                  <columns>
+                      <TableColumn fx:id="productNameColumn" prefWidth="105.0" text="Product Name" />
+                      <TableColumn fx:id="expirationDateColumn" prefWidth="110.0" text="Expiration Date" />
+                  <TableColumn fx:id="categoryColumn" prefWidth="110.0" text="Category" />
+                  <TableColumn fx:id="quantityColumn" prefWidth="110.0" text="Quantity" />
+                  <TableColumn fx:id="updateColumn" prefWidth="110.0" text="Update" />
+                      <!-- Add more columns as needed -->
+                  </columns>
+              </TableView>
+      
+              <Button fx:id="button_logout" layoutX="706.0" layoutY="556.0" mnemonicParsing="false" onMouseClicked="#handleLogout" prefHeight="30.0" prefWidth="80.0" text="Logout" />
+      
+              <Label fx:id="sellerStatusLabel" layoutX="230.0" layoutY="460.0" textFill="#ff0000" />
+            <TableView fx:id="expiredProductsTableView" layoutX="42.0" layoutY="300.0" prefHeight="235.0" prefWidth="720.0">
+               <columns>
+                  <TableColumn fx:id="productNameColumnExpired" prefWidth="105.0" text="Product Name" />
+                  <TableColumn fx:id="categoryColumnExpired" prefWidth="110.0" text="Category" />
+                  <TableColumn fx:id="quantityColumnExpired" prefWidth="110.0" text="Quantity" />
+                  <TableColumn fx:id="deleteColumnExpired" prefWidth="110.0" text="Delete" />
+               </columns>
+            </TableView>
+          </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

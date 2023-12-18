@@ -1,13 +1,8 @@
 package com.example.sklep;
 
+import com.example.sklep.model.SessionManager;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 
 import java.io.IOException;
@@ -15,11 +10,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+        SessionManager.getInstance().getViewFactory().showAppWindow();
 
     }
 
