@@ -1,4 +1,4 @@
-package com.example.sklep;
+package com.example.sklep.model;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
