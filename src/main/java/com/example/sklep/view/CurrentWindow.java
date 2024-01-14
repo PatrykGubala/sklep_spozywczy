@@ -4,5 +4,6 @@ public enum CurrentWindow {
     LOGIN,
     REGISTER,
     ADMIN,
-    SELLER
+    SELLER,
+    SCHEDULE
 }

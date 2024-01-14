@@ -1,9 +1,6 @@
 package com.example.sklep.controller;
 
-import com.example.sklep.model.DBUtils;
-import com.example.sklep.model.Product;
-import com.example.sklep.model.SessionManager;
-import com.example.sklep.model.User;
+import com.example.sklep.model.*;
 import com.example.sklep.view.CurrentWindow;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -18,7 +15,9 @@ import javafx.util.converter.LocalDateStringConverter;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -66,6 +65,17 @@ public class SellerController implements Initializable {
     @FXML
     private TableColumn<Product, Void> updateColumn;
 
+    @FXML
+    private TableView<Schedule> scheduleTableView;
+
+    @FXML
+    private TableColumn<Schedule, Date> dayScheduleColumn;
+    @FXML
+    private TableColumn<Schedule, LocalTime> startScheduleColumn;
+
+    @FXML
+    private TableColumn<Schedule, LocalTime> endScheduleColumn;
+
     private SessionManager sessionManager = SessionManager.getInstance();
 
     @Override
@@ -77,6 +87,9 @@ public class SellerController implements Initializable {
 
         ObservableList<Product> products = DBUtils.getProductListFromDatabase(false);
         ObservableList<Product> expiredProducts = DBUtils.getProductListFromDatabase(true);
+
+
+
 
         productsTableView.setItems(products);
         expiredProductsTableView.setItems(expiredProducts);
@@ -90,6 +103,10 @@ public class SellerController implements Initializable {
         productNameColumnExpired.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProductName()));
         categoryColumnExpired.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategory()));
         quantityColumnExpired.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getQuantity()));
+
+        loadScheduleDataForCurrentUser();
+
+
 
         setUpdateColumnFactory();
         setDeleteColumnFactory();
@@ -163,9 +180,9 @@ public class SellerController implements Initializable {
                     String loggedInUserName = loggedInUser.getName();
                     String loggedInUserSurname = loggedInUser.getSurname();
 
-                    label_name.setText("Zalogowano na koncie sprzedawcy: " + loggedInUserName +" "+loggedInUserSurname);
+                    label_name.setText("Logged in to the seller's account: " + loggedInUserName +" "+loggedInUserSurname);
                 } else {
-                    label_name.setText("Nie zalogowano");
+                    label_name.setText("Not logged in");
                 }
             } else {
                 System.err.println("label_name is null");
@@ -174,5 +191,41 @@ public class SellerController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
+
+    private void loadScheduleDataForCurrentUser() {
+        User loggedInUser = SessionManager.getInstance().getLoggedInUser();
+
+        if (loggedInUser != null) {
+            ObservableList<Schedule> scheduleData = DBUtils.getScheduleListForUserFromDatabase(loggedInUser.getId());
+
+            if (scheduleTableView != null) {
+
+                scheduleTableView.setItems(null);
+
+                scheduleTableView.setItems(scheduleData);
+
+                dayScheduleColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getDayOfWeek()));
+                startScheduleColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getStartTime()));
+                endScheduleColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getEndTime()));
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 

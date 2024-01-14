@@ -17,6 +17,7 @@ public class ViewFactory {
     private BorderPane sellerWindowView;
     private BorderPane loginWindowView;
     private BorderPane registerWindowView;
+    private BorderPane scheduleWindowView;
     private BorderPane addSellerUserWindowView;
     private AnchorPane orderUserView;
     private AnchorPane mainWindow;
@@ -82,6 +83,19 @@ public class ViewFactory {
     }
 
 
+    public BorderPane getScheduleWindow() {
+        if (scheduleWindowView == null) {
+            try {
+                scheduleWindowView = new FXMLLoader(HelloApplication.class.getResource("modify-schedule.fxml")).load();
+
+            } catch (Exception e) {
+                return null;
+
+            }
+        }
+        return scheduleWindowView;
+    }
+
     public BorderPane getAddSellerUserWindow() {
         if (addSellerUserWindowView == null) {
             try {
@@ -133,6 +147,7 @@ public class ViewFactory {
     public ObjectProperty<CurrentUserWindow> getCurrentUserWindowProperty() {
         return currentUserWindow;
     }
+
 
     public BorderPane getAdminUserWindow() {
         if (adminUserWindowView == null) {

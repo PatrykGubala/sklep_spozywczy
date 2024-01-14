@@ -23,6 +23,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import static com.example.sklep.view.CurrentUserWindow.ADDSELLER;
+import static com.example.sklep.view.CurrentUserWindow.SCHEDULE;
 import static com.example.sklep.view.CurrentWindow.LOGIN;
 
 public class AdminController implements Initializable {
@@ -76,6 +77,25 @@ public class AdminController implements Initializable {
         setDeleteColumnFactory();
     }
 
+    private void updateLabelNameAndSurname() {
+        try {
+            User loggedInUser = SessionManager.getInstance().getLoggedInUser();
+            if (label_name != null) {
+                if (loggedInUser != null) {
+                    String loggedInUserName = loggedInUser.getName();
+                    String loggedInUserSurname = loggedInUser.getSurname();
+
+                    label_name.setText("Logged in to the manager's account: " + loggedInUserName +" "+loggedInUserSurname);
+                } else {
+                    label_name.setText("Not logged in");
+                }
+            } else {
+                System.err.println("label_name is null");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void setDeleteColumnFactory() {
         deleteColumn.setCellFactory(param -> new TableCell<>() {
             private final Button deleteButton = new Button("Delete");
@@ -104,7 +124,23 @@ public class AdminController implements Initializable {
             }
         });
     }
+    @FXML
+    private void handleModifySchedule() {
+        System.out.println("Modify Schedule clicked");
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("modify-schedule.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Stage addProductStage = new Stage();
+            addProductStage.setTitle("Add Product");
+            addProductStage.initModality(Modality.APPLICATION_MODAL);
+            addProductStage.setScene(scene);
+            addProductStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
     @FXML
     private void handleLogout() {
         System.out.println("Admin logout clicked");
@@ -119,6 +155,8 @@ public class AdminController implements Initializable {
         SessionManager.getInstance().getViewFactory().getCurrentUserWindowProperty().set(ADDSELLER);
 
     }
+
+
 
     @FXML
     private void handleAddProduct() {
@@ -137,23 +175,5 @@ public class AdminController implements Initializable {
         }
 
     }
-    private void updateLabelNameAndSurname() {
-        try {
-            User loggedInUser = SessionManager.getInstance().getLoggedInUser();
-            if (label_name != null) {
-                if (loggedInUser != null) {
-                    String loggedInUserName = loggedInUser.getName();
-                    String loggedInUserSurname = loggedInUser.getSurname();
 
-                    label_name.setText("Zalogowano na koncie kierownika: " + loggedInUserName +" "+loggedInUserSurname);
-                } else {
-                    label_name.setText("Nie zalogowano");
-                }
-            } else {
-                System.err.println("label_name is null");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

@@ -11,7 +11,7 @@ class PasswordHasherTest {
     void testHashAndMatch() {
         PasswordHasher passwordHasher = new PasswordHasher();
 
-        // Test hashing and matching with a valid password
+
         String rawPassword = "SecurePassword123";
         String hashedPassword = passwordHasher.hash(rawPassword);
         assertTrue(passwordHasher.matches(rawPassword, hashedPassword));
@@ -21,7 +21,7 @@ class PasswordHasherTest {
     void testMismatchedPasswords() {
         PasswordHasher passwordHasher = new PasswordHasher();
 
-        // Test matching with mismatched passwords
+
         String rawPassword = "Password123";
         String incorrectPassword = "WrongPassword456";
         String hashedPassword = passwordHasher.hash(rawPassword);
@@ -32,7 +32,7 @@ class PasswordHasherTest {
     void testEmptyPassword() {
         PasswordHasher passwordHasher = new PasswordHasher();
 
-        // Test hashing and matching with an empty password
+
         String rawPassword = "";
         String hashedPassword = passwordHasher.hash(rawPassword);
         assertTrue(passwordHasher.matches(rawPassword, hashedPassword));

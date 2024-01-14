@@ -18,7 +18,7 @@
                       <TableColumn fx:id="deleteColumn" prefWidth="100.0" text="Delete" />
                   </columns>
               </TableView>
-      
+              <Button fx:id="button_modifySchedule" layoutX="400.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#handleModifySchedule" prefHeight="30.0" prefWidth="150.0" text="Modify Schedule" />
               <Button fx:id="button_logout" layoutX="706.0" layoutY="556.0" mnemonicParsing="false" onMouseClicked="#handleLogout" prefHeight="30.0" prefWidth="80.0" text="Logout" />
               <Button fx:id="button_addSeller" layoutX="40.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#handleAddSeller" prefHeight="30.0" prefWidth="150.0" text="Add Seller" />
               <Button fx:id="button_addProduct" layoutX="220.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#handleAddProduct" prefHeight="30.0" prefWidth="150.0" text="Add Product" />
