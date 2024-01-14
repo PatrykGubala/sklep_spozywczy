@@ -23,6 +23,7 @@ public class AppController implements Initializable {
                 case REGISTER -> mainWindow.setCenter(SessionManager.getInstance().getViewFactory().getRegisterWindow());
                 case SELLER -> mainWindow.setCenter(SessionManager.getInstance().getViewFactory().getSellerWindow());
                 case ADMIN -> mainWindow.setCenter(SessionManager.getInstance().getViewFactory().getAdminWindow());
+
             }
         });
 

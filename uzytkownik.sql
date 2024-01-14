@@ -45,6 +45,17 @@ CREATE TABLE IF NOT EXISTS produkty (
     ilość INT NOT NULL
     );
 
+
+CREATE TABLE IF NOT EXISTS grafik_pracy (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_uzytkownika INT,
+    dzien_tygodnia DATE,
+    godzina_rozpoczecia TIME,
+    godzina_zakonczenia TIME
+);
+
+
+
 -- Insert sample data
 INSERT INTO produkty (nazwa_produktu, data_ważności, kategoria, ilość)
 VALUES
@@ -58,9 +69,28 @@ VALUES
 --
 -- Indeksy dla tabeli `uzytkownik`
 --
+
+
 ALTER TABLE `uzytkownik`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `login` (`login`);
+
+ALTER TABLE grafik_pracy
+ADD FOREIGN KEY (id_uzytkownika) REFERENCES uzytkownik(id);
+
+
+/*
+--gdy jest 2 użytkowników
+INSERT INTO grafik_pracy (id_uzytkownika, dzien_tygodnia, godzina_rozpoczecia, godzina_zakonczenia)
+VALUES
+    (1, '2024-01-14', '08:00:00', '16:00:00'),
+    (2, '2024-01-14', '08:00:00', '16:00:00');
+
+*/
+
+
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

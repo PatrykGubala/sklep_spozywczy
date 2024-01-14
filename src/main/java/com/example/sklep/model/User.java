@@ -1,13 +1,16 @@
 package com.example.sklep.model;
 
 public class User {
+
+    private int id;
     private String username;
     private String name;
     private String surname;
     private String password;
     private boolean isAdmin;
 
-    public User(String username, String name, String surname, String password, boolean isAdmin) {
+    public User(int id, String username, String name, String surname, String password, boolean isAdmin) {
+        this.id = id;
         this.username = username;
         this.name = name;
         this.surname = surname;
@@ -51,4 +54,8 @@ public class User {
     public void setAdmin(boolean admin) {
         isAdmin = admin;
     }
+
+
+    public int getId() {return id;}
+
 }

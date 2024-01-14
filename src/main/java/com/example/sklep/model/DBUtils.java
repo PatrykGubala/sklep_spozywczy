@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class DBUtils {
 
@@ -88,7 +89,7 @@ public class DBUtils {
                 psInsert.setBoolean(6, isAdmin);
                 psInsert.executeUpdate();
 
-                SessionManager.getInstance().setLoggedInUser(new User(login, name,surname,password,isAdmin));
+                SessionManager.getInstance().setLoggedInUser(new User(newId, login, name,surname,password,isAdmin));
                 if(isAdmin) {
                     SessionManager.getInstance().getViewFactory().getCurrentWindowProperty().set(CurrentWindow.ADMIN);
                 }
@@ -122,7 +123,7 @@ public class DBUtils {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/sklep", "root", ""
             );
-            psSelect = connection.prepareStatement("select haslo,imie,nazwisko, admin from uzytkownik where login =?");
+            psSelect = connection.prepareStatement("select id,haslo,imie,nazwisko, admin from uzytkownik where login =?");
             psSelect.setString(1, login);
             resultSet = psSelect.executeQuery();
 
@@ -131,6 +132,7 @@ public class DBUtils {
 
             } else {
                 while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
                     String retrievedPassword = resultSet.getString("haslo");
                     String name = resultSet.getString("imie");
                     String surname = resultSet.getString("nazwisko");
@@ -138,7 +140,7 @@ public class DBUtils {
 
                     if (passwordHasher.matches(password, retrievedPassword)) {
 
-                        SessionManager.getInstance().setLoggedInUser(new User(login, name,surname,password,isAdmin));
+                        SessionManager.getInstance().setLoggedInUser(new User(id, login, name,surname,password,isAdmin));
                         if(isAdmin) {
                             SessionManager.getInstance().getViewFactory().getCurrentWindowProperty().set(CurrentWindow.ADMIN);
                         }
@@ -201,9 +203,9 @@ public class DBUtils {
             }
 
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace(); // Handle exceptions more gracefully in a real application
+            e.printStackTrace();
         } finally {
-            // Close resources
+
         }
 
         return productList;
@@ -250,7 +252,6 @@ public class DBUtils {
                     "jdbc:mysql://localhost:3306/sklep", "root", ""
             );
 
-            // Check if the product with the same name and expiration date already exists
             psUpdate = connection.prepareStatement("UPDATE produkty SET ilość = ilość + ? WHERE nazwa_produktu = ? AND data_ważności = ?");
             psUpdate.setInt(1, product.getQuantity());
             psUpdate.setString(2, product.getProductName());
@@ -259,7 +260,7 @@ public class DBUtils {
             int updatedRows = psUpdate.executeUpdate();
 
             if (updatedRows == 0) {
-                // Product doesn't exist, insert a new product
+
                 psInsert = connection.prepareStatement("INSERT INTO produkty (nazwa_produktu, data_ważności, kategoria, ilość) VALUES ( ?, ?, ?, ?)");
 
                 psInsert.setString(1, product.getProductName());
@@ -269,7 +270,7 @@ public class DBUtils {
                 psInsert.executeUpdate();
             }
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace(); // Handle exceptions more gracefully in a real application
+            e.printStackTrace();
         } finally {
             try {
                 if (resultSet != null) resultSet.close();
@@ -281,6 +282,184 @@ public class DBUtils {
             }
         }
     }
+
+
+    public static ObservableList<Schedule> getScheduleListForUserFromDatabase(int userId) {
+        ObservableList<Schedule> scheduleList = FXCollections.observableArrayList();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/sklep", "root", ""
+            );
+
+            String query = "SELECT * FROM grafik_pracy WHERE id_uzytkownika = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, userId);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Date dayOfWeek = resultSet.getDate("dzien_tygodnia");
+                LocalTime startTime = resultSet.getTime("godzina_rozpoczecia").toLocalTime();
+                LocalTime endTime = resultSet.getTime("godzina_zakonczenia").toLocalTime();
+
+                Schedule schedule = new Schedule(userId, dayOfWeek, startTime, endTime);
+                scheduleList.add(schedule);
+
+
+                System.out.println("User ID: " + userId +
+                        ", Day of Week: " + dayOfWeek +
+                        ", Start Time: " + startTime +
+                        ", End Time: " + endTime);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return scheduleList;
+    }
+
+    public static ObservableList<User> getUsersFromDatabase() {
+        ObservableList<User> users = FXCollections.observableArrayList();
+
+        try {
+            Connection connection = getConnection();
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM uzytkownik");
+
+            while (resultSet.next()) {
+                int userId = resultSet.getInt("id");
+                String userName = resultSet.getString("imie");
+                String userSurname = resultSet.getString("nazwisko");
+
+
+                users.add(new User(userId, userName, userSurname, "exampleUsername", "examplePassword", false));
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return users;
+    }
+
+    public static ObservableList<Integer> getUserIdsFromDatabase() throws SQLException {
+        ObservableList<Integer> userIds = FXCollections.observableArrayList();
+
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = getConnection(); // Zakładam, że masz odpowiednią metodę getConnection() w klasie DBUtils
+
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT id FROM uzytkownik");
+
+            while (resultSet.next()) {
+                int userId = resultSet.getInt("id");
+                userIds.add(userId);
+            }
+
+        } finally {
+
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+
+        return userIds;
+    }
+
+    public static ObservableList<Schedule> getSchedulesFromDatabase() {
+        ObservableList<Schedule> schedules = FXCollections.observableArrayList();
+
+        try {
+            Connection connection = getConnection();
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM grafik_pracy");
+
+            while (resultSet.next()) {
+                int userId = resultSet.getInt("id_uzytkownika");
+                Date dayOfWeek = resultSet.getDate("dzien_tygodnia");
+                LocalTime startTime = resultSet.getTime("godzina_rozpoczecia").toLocalTime();
+                LocalTime endTime = resultSet.getTime("godzina_zakonczenia").toLocalTime();
+
+                schedules.add(new Schedule(userId, dayOfWeek, startTime, endTime));
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return schedules;
+    }
+
+    public static void addScheduleToDatabase(Schedule schedule) {
+        try {
+            Connection connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO grafik_pracy (id_uzytkownika, dzien_tygodnia, godzina_rozpoczecia, godzina_zakonczenia) VALUES (?, ?, ?, ?)");
+            preparedStatement.setInt(1, schedule.getUserId());
+            preparedStatement.setDate(2, new java.sql.Date(schedule.getDayOfWeek().getTime()));
+            preparedStatement.setTime(3, Time.valueOf(schedule.getStartTime()));
+            preparedStatement.setTime(4, Time.valueOf(schedule.getEndTime()));
+
+            preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void deleteScheduleFromDatabase(Schedule schedule) {
+        try {
+            Connection connection = getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM grafik_pracy WHERE id_uzytkownika = ?");
+            preparedStatement.setInt(1, schedule.getUserId());
+
+            preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/sklep", "root", "");
+    }
+
 
 
 }
