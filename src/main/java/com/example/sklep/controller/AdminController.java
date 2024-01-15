@@ -61,6 +61,9 @@ public class AdminController implements Initializable {
     @FXML
     private BorderPane mainAdminWindow;
 
+    @FXML
+    private Button button_remanent;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         products = DBUtils.getProductListFromDatabase(false);
@@ -174,6 +177,27 @@ public class AdminController implements Initializable {
             e.printStackTrace();
         }
 
+    }
+
+
+
+    @FXML
+    private void handleRemanent() {
+        System.out.println("Remnant clicked");
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("remanent.fxml"));
+            Stage remnantStage = new Stage();
+            remnantStage.setTitle("Remanent");
+            remnantStage.initModality(Modality.APPLICATION_MODAL);
+            remnantStage.setScene(new Scene(loader.load()));
+
+            RemanentController remnantController = loader.getController();
+            remnantController.initialize();
+
+            remnantStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

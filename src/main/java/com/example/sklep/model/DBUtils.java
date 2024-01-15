@@ -456,6 +456,46 @@ public class DBUtils {
         }
     }
 
+    public static ObservableList<Product> getRemanent(boolean expired) {
+        ObservableList<Product> productList = FXCollections.observableArrayList();
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/sklep", "root", ""
+            );
+
+            statement = connection.createStatement();
+            String query;
+            if (expired) {
+                query = "SELECT * FROM produkty WHERE data_ważności <= CURDATE()";
+            } else {
+                query = "SELECT * FROM produkty WHERE data_ważności > CURDATE()";
+            }
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                String productName = resultSet.getString("nazwa_produktu");
+                LocalDate expirationDate = resultSet.getDate("data_ważności").toLocalDate();
+                String category = resultSet.getString("kategoria");
+                int quantity = resultSet.getInt("ilość");
+
+                Product product = new Product(productName, expirationDate, category, quantity);
+                productList.add(product);
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+
+        return productList;
+    }
+
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/sklep", "root", "");
     }
