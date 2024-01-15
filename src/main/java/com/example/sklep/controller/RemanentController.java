@@ -49,5 +49,6 @@ public class RemanentController {
     private void loadRemnantData() {
         remnantData.clear();
         remnantData.addAll(DBUtils.getProductListFromDatabase(true));
+        remnantData.addAll(DBUtils.getProductListFromDatabase(false));
     }
 }
