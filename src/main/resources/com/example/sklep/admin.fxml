@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainAdminWindow" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sklep.controller.AdminController">
+<BorderPane fx:id="mainAdminWindow" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sklep.controller.AdminController">
    <center>
       <AnchorPane prefHeight="600.0" prefWidth="800.0">
           <children>
@@ -26,6 +30,7 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
+            <Button fx:id="button_remanent" layoutX="574.0" layoutY="369.0" mnemonicParsing="false" onMouseClicked="#handleRemanent" prefHeight="32.0" prefWidth="149.0" text="Remanent " />
       
           </children>
       </AnchorPane>

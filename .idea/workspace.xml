@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b774e8-4747-48c1-b9c8-f8ab6ba1da51" name="Changes" comment="podłączenie bazy + GUI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/ScheduleModifyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/Schedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/modify-schedule.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/remanent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SellerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SellerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SignUpController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/DBUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/view/CurrentUserWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/view/CurrentUserWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/view/CurrentWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/view/CurrentWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/view/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/view/ViewFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sklep/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/admin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sklep/seller.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sklep/seller.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sklep/PasswordHasherTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sklep/PasswordHasherTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uzytkownik.sql" beforeDir="false" afterPath="$PROJECT_DIR$/uzytkownik.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,11 +82,15 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.sklep" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.sklep.controller" />
+      <recent name="com.example.sklep.controller.command" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sklep.HelloApplication" />
-      <module name="sklep-spozywczy" />
+      <module name="sklep" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.sklep.*" />
@@ -185,6 +176,17 @@
       <option name="MAIN_CLASS_NAME" value="com.example.sklep.PasswordHasherTest" />
       <option name="METHOD_NAME" value="testNullPassword" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
