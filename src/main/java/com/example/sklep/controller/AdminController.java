@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -32,6 +33,9 @@ public class AdminController implements Initializable {
     private Button button_logout;
     @FXML
     private Label label_name;
+
+    @FXML
+    private Button button_refresh;
 
     @FXML
     private Button button_addSeller;
@@ -199,5 +203,18 @@ public class AdminController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    public void handleRefreshButton(MouseEvent mouseEvent) {
+        try {
+            ObservableList<Product> updatedProducts = DBUtils.getProductListFromDatabase(false);
+            updatedProducts.addAll(DBUtils.getProductListFromDatabase(true));
 
+            products.clear();
+            products.addAll(updatedProducts);
+            productsTableView.setItems(products);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }
