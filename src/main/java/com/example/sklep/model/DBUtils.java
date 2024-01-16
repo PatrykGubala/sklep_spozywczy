@@ -49,6 +49,7 @@ public class DBUtils {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = getConnection();
+            System.out.println(jdbcUrl);
             statement = connection.createStatement();
             String query = "SELECT MAX(" + idColumnName + ") FROM " + tableName;
             resultSet = statement.executeQuery(query);
@@ -91,7 +92,9 @@ public class DBUtils {
             resultSet = psIsTaken.executeQuery();
 
             if (resultSet.isBeforeFirst()) {
+                System.out.println("ERROR USER EXISTS");
                 AlertHelper.showAlert(Alert.AlertType.ERROR, "Error", "User already exists", "");
+
 
             } else {
                 int newId = lastId;
@@ -104,15 +107,14 @@ public class DBUtils {
                 psInsert.setString(5, surname);
                 psInsert.setBoolean(6, isAdmin);
                 psInsert.executeUpdate();
-
                 SessionManager.getInstance().setLoggedInUser(new User(newId, login, name,surname,password,isAdmin));
                 if(isAdmin) {
-                    AlertHelper.showAlert(Alert.AlertType.INFORMATION, "Information", "Admin added", "");
                     SessionManager.getInstance().getViewFactory().getCurrentWindowProperty().set(CurrentWindow.ADMIN);
+
                 }
                 else {
-                    AlertHelper.showAlert(Alert.AlertType.INFORMATION, "Information", "User added", "");
                     SessionManager.getInstance().getViewFactory().getCurrentWindowProperty().set(CurrentWindow.SELLER);
+
                 }
 
             }
@@ -126,7 +128,6 @@ public class DBUtils {
                 if (connection != null) connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
-
             }
         }
     }
@@ -247,7 +248,9 @@ public class DBUtils {
 
 
         } catch (ClassNotFoundException | SQLException e) {
-            AlertHelper.showAlert(Alert.AlertType.WARNING, "Delete", "Product deleteion failed", "");
+            e.printStackTrace();
+            AlertHelper.showAlert(Alert.AlertType.ERROR, "Error", "Deletion failed", "");
+
         } finally {
             try {
                 if (preparedStatement != null) preparedStatement.close();
@@ -326,6 +329,10 @@ public class DBUtils {
                 scheduleList.add(schedule);
 
 
+                System.out.println("User ID: " + userId +
+                        ", Day of Week: " + dayOfWeek +
+                        ", Start Time: " + startTime +
+                        ", End Time: " + endTime);
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -505,9 +512,5 @@ public class DBUtils {
 
         return productList;
     }
-
-
-
-
 
 }
