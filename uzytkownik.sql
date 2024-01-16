@@ -40,9 +40,9 @@ CREATE TABLE `uzytkownik` (
 CREATE TABLE IF NOT EXISTS produkty (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nazwa_produktu VARCHAR(100) NOT NULL,
-    data_ważności DATE NOT NULL,
+    data_waznosci DATE NOT NULL,
     kategoria VARCHAR(100),
-    ilość INT NOT NULL
+    ilosc INT NOT NULL
     );
 
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS grafik_pracy (
 
 
 -- Insert sample data
-INSERT INTO produkty (nazwa_produktu, data_ważności, kategoria, ilość)
+INSERT INTO produkty (nazwa_produktu, data_waznosci, kategoria, ilosc)
 VALUES
     ('Product1', '2023-12-31', 'Category1', 10),
     ('Product2', '2023-11-15', 'Category2', 5),

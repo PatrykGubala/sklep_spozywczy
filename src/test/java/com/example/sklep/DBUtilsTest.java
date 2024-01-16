@@ -1,9 +1,6 @@
 package com.example.sklep;
 
-import com.example.sklep.model.DBUtils;
-import com.example.sklep.model.Product;
-import com.example.sklep.model.SessionManager;
-import com.example.sklep.model.User;
+import com.example.sklep.model.*;
 import javafx.collections.ObservableList;
 import org.h2.tools.RunScript;
 import org.junit.jupiter.api.AfterEach;
@@ -13,7 +10,11 @@ import org.junit.jupiter.api.Test;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -77,10 +78,63 @@ public class DBUtilsTest {
         assertEquals(surname, signedUpUser.getSurname());
         assertEquals(isAdmin, signedUpUser.isAdmin());
     }
+    @Test
+    public void testGetProductListFromDatabaseExpired() {
+        // Arrange
+        DBUtils.setDatabaseConfiguration(JDBC_URL, "", "");
+        DBUtils.addProduct(new Product("ExpiredProduct", LocalDate.now().minusDays(1), "Food", 10));
 
-   
+        // Act
+        ObservableList<Product> expiredProducts = DBUtils.getProductListFromDatabase(true);
+
+        // Assert
+        assertNotNull(expiredProducts, "Product list is null");
+        assertEquals(1, expiredProducts.size(), "Unexpected number of expired products");
+        assertEquals("ExpiredProduct", expiredProducts.get(0).getProductName(), "Unexpected product name");
+        assertEquals(LocalDate.now().minusDays(1), expiredProducts.get(0).getExpirationDate(), "Unexpected expiration date");
+        assertEquals("Food", expiredProducts.get(0).getCategory(), "Unexpected category");
+        assertEquals(10, expiredProducts.get(0).getQuantity(), "Unexpected quantity");
+    }
 
 
+
+    @Test
+    public void testAddScheduleToDatabase() {
+        DBUtils.setDatabaseConfiguration(JDBC_URL, "", "");
+
+        String login = "testUser";
+        String password = "testPassword";
+        String name = "Test";
+        String surname = "User";
+        Boolean isAdmin = false;
+
+        DBUtils.signUpUser(login, password, name, surname, isAdmin);
+        int userId = SessionManager.getInstance().getLoggedInUser().getId();
+
+        java.sql.Date dayOfWeek = new java.sql.Date(System.currentTimeMillis());
+
+        LocalTime startTime = LocalTime.now();
+        LocalTime endTime = startTime.plusHours(1);
+
+        Schedule schedule = new Schedule(userId, dayOfWeek, startTime, endTime);
+
+        DBUtils.addScheduleToDatabase(schedule);
+
+        ObservableList<Schedule> schedules = DBUtils.getSchedulesFromDatabase();
+        boolean scheduleFound = false;
+        for (Schedule existingSchedule : schedules) {
+            if (existingSchedule.getUserId() == userId &&
+                    existingSchedule.getStartTime().isAfter(startTime.minusSeconds(1))  &&
+                    existingSchedule.getStartTime().isBefore(startTime.plusSeconds(1)) &&
+                    existingSchedule.getEndTime().isAfter(endTime.minusSeconds(1)) &&
+                    existingSchedule.getEndTime().isBefore(endTime.plusSeconds(1))) {
+                scheduleFound = true;
+                break;
+            }
+        }
+
+        assertTrue(scheduleFound);
+    }
     private String generateRandomString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         StringBuilder randomString = new StringBuilder();
