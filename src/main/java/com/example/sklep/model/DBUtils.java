@@ -93,6 +93,9 @@ public class DBUtils {
 
             if (resultSet.isBeforeFirst()) {
                 System.out.println("ERROR USER EXISTS");
+                AlertHelper.showAlert(Alert.AlertType.ERROR, "Error", "User already exists", "");
+
+
             } else {
                 int newId = lastId;
 
@@ -104,13 +107,14 @@ public class DBUtils {
                 psInsert.setString(5, surname);
                 psInsert.setBoolean(6, isAdmin);
                 psInsert.executeUpdate();
-
                 SessionManager.getInstance().setLoggedInUser(new User(newId, login, name,surname,password,isAdmin));
                 if(isAdmin) {
                     SessionManager.getInstance().getViewFactory().getCurrentWindowProperty().set(CurrentWindow.ADMIN);
+
                 }
                 else {
                     SessionManager.getInstance().getViewFactory().getCurrentWindowProperty().set(CurrentWindow.SELLER);
+
                 }
 
             }
@@ -240,11 +244,14 @@ public class DBUtils {
             preparedStatement.setString(1, product.getProductName());
             preparedStatement.setDate(2, java.sql.Date.valueOf(product.getExpirationDate()));
             preparedStatement.executeUpdate();
+            AlertHelper.showAlert(Alert.AlertType.INFORMATION, "Delete", "Product deleted", "");
+
 
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace(); // Handle exceptions more gracefully in a real application
+            e.printStackTrace();
+            AlertHelper.showAlert(Alert.AlertType.ERROR, "Error", "Deletion failed", "");
+
         } finally {
-            // Close resources
             try {
                 if (preparedStatement != null) preparedStatement.close();
                 if (connection != null) connection.close();
@@ -505,9 +512,5 @@ public class DBUtils {
 
         return productList;
     }
-
-
-
-
 
 }

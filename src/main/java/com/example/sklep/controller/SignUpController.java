@@ -48,12 +48,12 @@ public class SignUpController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        sessionManager.getLocalValidator().validatorCheck(tf_name, "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż]+$", "At least two alphabetic characters");
-        sessionManager.getLocalValidator().validatorCheck(tf_surname, "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż]+$", "At least two alphabetic characters");
-        sessionManager.getLocalValidator().validatorCheck(tf_login, "^(.{2,})+$", "At least one special character");
-        sessionManager.getLocalValidator().validatorCheck(tf_password_first, "^(.*[0-9].*).+$", "At least one digit");
+        sessionManager.getLocalValidator().validatorCheck(tf_name, "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż]+$", "At least two alphabetic characters (no special characters)");
+        sessionManager.getLocalValidator().validatorCheck(tf_surname, "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż]+$", "At least two alphabetic characters (no special characters)");
+        sessionManager.getLocalValidator().validatorCheck(tf_login, "^(.{2,})+$", "At least two characters");
+        sessionManager.getLocalValidator().validatorCheck(tf_password_first, "^(.*[0-9].*).+$", "At least two digits");
 
-        sessionManager.getLocalValidator().passwordValidator(tf_password_first,tf_password_second,"^(.*[0-9].*).+$", "At least one digit");
+        sessionManager.getLocalValidator().passwordValidator(tf_password_first,tf_password_second,"^(.*[0-9].*).+$", "At least two digits");
 
         button_sign_up.disableProperty().bind(sessionManager.getLocalValidator().containsErrorsProperty());
 

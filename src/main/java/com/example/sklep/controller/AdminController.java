@@ -110,7 +110,6 @@ public class AdminController implements Initializable {
             {
                 deleteButton.setOnAction(event -> {
                     Product product = getTableView().getItems().get(getIndex());
-                    System.out.println("Delete clicked for: " + product.getProductName());
 
                     DBUtils.deleteProduct(product);
 
