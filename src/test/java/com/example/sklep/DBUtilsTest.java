@@ -3,6 +3,7 @@ package com.example.sklep;
 import com.example.sklep.model.DBUtils;
 import com.example.sklep.model.Product;
 import com.example.sklep.model.SessionManager;
+import com.example.sklep.model.User;
 import javafx.collections.ObservableList;
 import org.h2.tools.RunScript;
 import org.junit.jupiter.api.AfterEach;
@@ -35,7 +36,7 @@ public class DBUtilsTest {
     @AfterEach
     public void tearDown() {
         try (Connection connection = DBUtils.getConnection();
-             InputStreamReader reader = new InputStreamReader(DBUtilsTest.class.getResourceAsStream("/h2database.sql"))) {
+             InputStreamReader reader = new InputStreamReader(DBUtilsTest.class.getResourceAsStream("/cleanup.sql"))) {
             RunScript.execute(connection, reader);
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,7 +58,27 @@ public class DBUtilsTest {
         }
     }
 
+    @Test
+    public void testSignUpUser() {
+        DBUtils.setDatabaseConfiguration(JDBC_URL, "", "");
 
+        String login = "testUser";
+        String password = "testPassword";
+        String name = "Test";
+        String surname = "User";
+        Boolean isAdmin = false;
+
+        DBUtils.signUpUser(login, password, name, surname, isAdmin);
+
+        User signedUpUser = SessionManager.getInstance().getLoggedInUser();
+        assertNotNull(signedUpUser, "Signed-up user is null");
+        assertEquals(login, signedUpUser.getUsername());
+        assertEquals(name, signedUpUser.getName());
+        assertEquals(surname, signedUpUser.getSurname());
+        assertEquals(isAdmin, signedUpUser.isAdmin());
+    }
+
+   
 
 
     private String generateRandomString(int length) {
