@@ -201,17 +201,17 @@ public class DBUtils {
             statement = connection.createStatement();
             String query;
             if (expired) {
-                query = "SELECT * FROM produkty WHERE data_ważności <= CURDATE()";
+                query = "SELECT * FROM produkty WHERE data_waznosci <= CURDATE()";
             } else {
-                query = "SELECT * FROM produkty WHERE data_ważności > CURDATE()";
+                query = "SELECT * FROM produkty WHERE data_waznosci > CURDATE()";
             }
             resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
                 String productName = resultSet.getString("nazwa_produktu");
-                LocalDate expirationDate = resultSet.getDate("data_ważności").toLocalDate();
+                LocalDate expirationDate = resultSet.getDate("data_waznosci").toLocalDate();
                 String category = resultSet.getString("kategoria");
-                int quantity = resultSet.getInt("ilość");
+                int quantity = resultSet.getInt("ilosc");
 
                 Product product = new Product(productName, expirationDate, category, quantity);
                 productList.add(product);
@@ -235,7 +235,7 @@ public class DBUtils {
             connection = getConnection();
 
 
-            String query = "DELETE FROM produkty WHERE nazwa_produktu = ? AND data_ważności = ?";
+            String query = "DELETE FROM produkty WHERE nazwa_produktu = ? AND data_waznosci = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, product.getProductName());
             preparedStatement.setDate(2, java.sql.Date.valueOf(product.getExpirationDate()));
@@ -265,7 +265,7 @@ public class DBUtils {
             connection = getConnection();
 
 
-            psUpdate = connection.prepareStatement("UPDATE produkty SET ilość = ilość + ? WHERE nazwa_produktu = ? AND data_ważności = ?");
+            psUpdate = connection.prepareStatement("UPDATE produkty SET ilosc = ilosc + ? WHERE nazwa_produktu = ? AND data_waznosci = ?");
             psUpdate.setInt(1, product.getQuantity());
             psUpdate.setString(2, product.getProductName());
             psUpdate.setDate(3, Date.valueOf(product.getExpirationDate()));
@@ -274,7 +274,7 @@ public class DBUtils {
 
             if (updatedRows == 0) {
 
-                psInsert = connection.prepareStatement("INSERT INTO produkty (nazwa_produktu, data_ważności, kategoria, ilość) VALUES ( ?, ?, ?, ?)");
+                psInsert = connection.prepareStatement("INSERT INTO produkty (nazwa_produktu, data_waznosci, kategoria, ilosc) VALUES ( ?, ?, ?, ?)");
 
                 psInsert.setString(1, product.getProductName());
                 psInsert.setDate(2, Date.valueOf(product.getExpirationDate()));
@@ -481,17 +481,17 @@ public class DBUtils {
             statement = connection.createStatement();
             String query;
             if (expired) {
-                query = "SELECT * FROM produkty WHERE data_ważności <= CURDATE()";
+                query = "SELECT * FROM produkty WHERE data_waznosci <= CURDATE()";
             } else {
-                query = "SELECT * FROM produkty WHERE data_ważności > CURDATE()";
+                query = "SELECT * FROM produkty WHERE data_waznosci > CURDATE()";
             }
             resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
                 String productName = resultSet.getString("nazwa_produktu");
-                LocalDate expirationDate = resultSet.getDate("data_ważności").toLocalDate();
+                LocalDate expirationDate = resultSet.getDate("data_waznosci").toLocalDate();
                 String category = resultSet.getString("kategoria");
-                int quantity = resultSet.getInt("ilość");
+                int quantity = resultSet.getInt("ilosc");
 
                 Product product = new Product(productName, expirationDate, category, quantity);
                 productList.add(product);

@@ -23,12 +23,7 @@ CREATE TABLE IF NOT EXISTS grafik_pracy (
                                             godzina_zakonczenia TIME
 );
 
--- Insert sample data
-INSERT INTO produkty (nazwa_produktu, data_waznosci, kategoria, ilosc)
-VALUES
-    ('Product1', '2023-12-31', 'Category1', 10),
-    ('Product2', '2023-11-15', 'Category2', 5),
-    ('Product3', '2024-02-28', 'Category1', 20);
+
 
 -- Indexes for table uzytkownik
 CREATE INDEX uzytkownik_login_index ON uzytkownik (login);

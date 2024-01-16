@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b774e8-4747-48c1-b9c8-f8ab6ba1da51" name="Changes" comment="podłączenie bazy + GUI">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/DBUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sklep/DBUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sklep/DBUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/cleanup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/cleanup.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/h2database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/h2database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uzytkownik.sql" beforeDir="false" afterPath="$PROJECT_DIR$/uzytkownik.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,56 +37,57 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2YIc0QgFisGPOZCyot30iw4T0UX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Launcher.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.DBUtilsTest.executor": "Run",
-    "JUnit.DBUtilsTest.testSignUpUser.executor": "Run",
-    "JUnit.PasswordHasherTest.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "branch__PG",
-    "jdk.selected.JAVA_MODULE": "19",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/patry/OneDrive/Pulpit/dsadadasdasda/sklep-spozywczy/src/test/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.35895032",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.DBUtilsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DBUtilsTest.testSignUpUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PasswordHasherTest.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;branch__PG&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/patry/OneDrive/Pulpit/dsadadasdasda/sklep-spozywczy/src/test/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.35895032&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "h2"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;h2&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\patry\OneDrive\Pulpit\dsadadasdasda\sklep-spozywczy\src\test\java" />
@@ -106,7 +110,7 @@
       <recent name="com.example.sklep.controller.command" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DBUtilsTest.testLogInUser">
+  <component name="RunManager" selected="Application.Launcher">
     <configuration name="HelloApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sklep.HelloApplication" />
       <module name="sklep" />
@@ -122,7 +126,7 @@
     </configuration>
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sklep.Launcher" />
-      <module name="sklep" />
+      <module name="sklep-spozywczy" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.sklep.*" />
@@ -133,8 +137,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DBUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sklep" />
+    <configuration name="DBUtilsTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sklep-spozywczy" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.sklep.*" />
@@ -144,6 +148,38 @@
       <option name="PACKAGE_NAME" value="com.example.sklep" />
       <option name="MAIN_CLASS_NAME" value="com.example.sklep.DBUtilsTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBUtilsTest.testAddScheduleToDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sklep-spozywczy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sklep.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.sklep" />
+      <option name="MAIN_CLASS_NAME" value="com.example.sklep.DBUtilsTest" />
+      <option name="METHOD_NAME" value="testAddScheduleToDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBUtilsTest.testGetProductListFromDatabaseExpired" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sklep-spozywczy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sklep.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.sklep" />
+      <option name="MAIN_CLASS_NAME" value="com.example.sklep.DBUtilsTest" />
+      <option name="METHOD_NAME" value="testGetProductListFromDatabaseExpired" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -164,44 +200,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DBUtilsTest.testSignUpUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sklep" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.sklep.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.sklep" />
-      <option name="MAIN_CLASS_NAME" value="com.example.sklep.DBUtilsTest" />
-      <option name="METHOD_NAME" value="testSignUpUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PasswordHasherTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sklep" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.sklep.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.sklep" />
-      <option name="MAIN_CLASS_NAME" value="com.example.sklep.PasswordHasherTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DBUtilsTest.testLogInUser" />
-        <item itemvalue="JUnit.DBUtilsTest" />
-        <item itemvalue="JUnit.DBUtilsTest.testSignUpUser" />
         <item itemvalue="Application.Launcher" />
-        <item itemvalue="JUnit.PasswordHasherTest" />
+        <item itemvalue="JUnit.DBUtilsTest.testAddScheduleToDatabase" />
+        <item itemvalue="JUnit.DBUtilsTest.testGetProductListFromDatabaseExpired" />
+        <item itemvalue="JUnit.DBUtilsTest (1)" />
+        <item itemvalue="JUnit.DBUtilsTest.testLogInUser" />
       </list>
     </recent_temporary>
   </component>
@@ -219,6 +224,7 @@
       <workItem from="1701762715708" duration="1878000" />
       <workItem from="1702642206092" duration="7346000" />
       <workItem from="1705358764126" duration="6270000" />
+      <workItem from="1705389255079" duration="3531000" />
     </task>
     <task id="LOCAL-00001" summary="podłączenie bazy + GUI">
       <created>1700319658089</created>
@@ -252,20 +258,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/example/sklep/PasswordHasherTest.java</url>
           <line>7</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/example/sklep/DBUtilsTest.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/com/example/sklep/DBUtilsTest.java</url>
-          <line>61</line>
-          <properties class="com.example.sklep.DBUtilsTest" method="testSignUpUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
