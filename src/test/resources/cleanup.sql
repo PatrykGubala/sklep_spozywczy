@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS uzytkownik;
+DROP TABLE IF EXISTS produkty;
+DROP TABLE IF EXISTS grafik_pracy;
+DROP SCHEMA IF EXISTS sklep;
