@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b774e8-4747-48c1-b9c8-f8ab6ba1da51" name="Changes" comment="podłączenie bazy + GUI">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/ScheduleModifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/ScheduleModifyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/controller/SignUpController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/DBUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/remanent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sklep/model/Remanent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sklep/DBUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sklep/DBUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/h2database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/h2database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uzytkownik.sql" beforeDir="false" afterPath="$PROJECT_DIR$/uzytkownik.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,9 +203,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Launcher" />
+        <item itemvalue="JUnit.DBUtilsTest (1)" />
         <item itemvalue="JUnit.DBUtilsTest.testAddScheduleToDatabase" />
         <item itemvalue="JUnit.DBUtilsTest.testGetProductListFromDatabaseExpired" />
-        <item itemvalue="JUnit.DBUtilsTest (1)" />
         <item itemvalue="JUnit.DBUtilsTest.testLogInUser" />
       </list>
     </recent_temporary>
@@ -224,7 +224,7 @@
       <workItem from="1701762715708" duration="1878000" />
       <workItem from="1702642206092" duration="7346000" />
       <workItem from="1705358764126" duration="6270000" />
-      <workItem from="1705389255079" duration="3531000" />
+      <workItem from="1705389255079" duration="9292000" />
     </task>
     <task id="LOCAL-00001" summary="podłączenie bazy + GUI">
       <created>1700319658089</created>

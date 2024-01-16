@@ -80,14 +80,11 @@ public class DBUtilsTest {
     }
     @Test
     public void testGetProductListFromDatabaseExpired() {
-        // Arrange
         DBUtils.setDatabaseConfiguration(JDBC_URL, "", "");
         DBUtils.addProduct(new Product("ExpiredProduct", LocalDate.now().minusDays(1), "Food", 10));
 
-        // Act
         ObservableList<Product> expiredProducts = DBUtils.getProductListFromDatabase(true);
 
-        // Assert
         assertNotNull(expiredProducts, "Product list is null");
         assertEquals(1, expiredProducts.size(), "Unexpected number of expired products");
         assertEquals("ExpiredProduct", expiredProducts.get(0).getProductName(), "Unexpected product name");

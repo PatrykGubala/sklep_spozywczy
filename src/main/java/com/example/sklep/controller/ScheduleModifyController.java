@@ -64,11 +64,7 @@ public class ScheduleModifyController {
         try {
 
             userIds = DBUtils.getUserIdsFromDatabase();
-
-
             userChoiceBox.setItems(userIds);
-
-
             dayScheduleColumn.setCellValueFactory(new PropertyValueFactory<>("dayOfWeek"));
             startScheduleColumn.setCellValueFactory(new PropertyValueFactory<>("startTime"));
             endScheduleColumn.setCellValueFactory(new PropertyValueFactory<>("endTime"));
