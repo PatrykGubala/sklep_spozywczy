@@ -19,6 +19,25 @@ import java.time.LocalTime;
 
 public class DBUtils {
 
+    public static String jdbcUrl= "jdbc:mysql://localhost:3306/sklep";
+    public static String dbUser = "root";
+    public static String dbPassword = "";
+
+    public DBUtils() {
+        jdbcUrl = "jdbc:mysql://localhost:3306/sklep";
+        dbUser = "root";
+        dbPassword = "";
+    }
+    public static void setDatabaseConfiguration(String jdbcUrl, String dbUser, String dbPassword) {
+        DBUtils.jdbcUrl = jdbcUrl;
+        DBUtils.dbUser = dbUser;
+        DBUtils.dbPassword = dbPassword;
+    }
+
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
+    }
 
 
     public static int getNextId(String tableName, String idColumnName) {
@@ -29,10 +48,8 @@ public class DBUtils {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/sklep", "root", ""
-            );
-
+            connection = getConnection();
+            System.out.println(jdbcUrl);
             statement = connection.createStatement();
             String query = "SELECT MAX(" + idColumnName + ") FROM " + tableName;
             resultSet = statement.executeQuery(query);
@@ -42,7 +59,7 @@ public class DBUtils {
                 nextId = maxId + 1;
             }
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace(); // Handle exceptions more gracefully in a real application
+            e.printStackTrace();
         } finally {
             try {
                 if (resultSet != null) resultSet.close();
@@ -65,9 +82,8 @@ public class DBUtils {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/sklep", "root", ""
-            );
+            connection = getConnection();
+
 
             int lastId = getNextId("uzytkownik", "id");
 
@@ -120,9 +136,9 @@ public class DBUtils {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/sklep", "root", ""
-            );
+
+            connection = getConnection();
+
             psSelect = connection.prepareStatement("select id,haslo,imie,nazwisko, admin from uzytkownik where login =?");
             psSelect.setString(1, login);
             resultSet = psSelect.executeQuery();
@@ -179,9 +195,8 @@ public class DBUtils {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/sklep", "root", ""
-            );
+            connection = getConnection();
+
 
             statement = connection.createStatement();
             String query;
@@ -217,9 +232,8 @@ public class DBUtils {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/sklep", "root", ""
-            );
+            connection = getConnection();
+
 
             String query = "DELETE FROM produkty WHERE nazwa_produktu = ? AND data_ważności = ?";
             preparedStatement = connection.prepareStatement(query);
@@ -248,9 +262,8 @@ public class DBUtils {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/sklep", "root", ""
-            );
+            connection = getConnection();
+
 
             psUpdate = connection.prepareStatement("UPDATE produkty SET ilość = ilość + ? WHERE nazwa_produktu = ? AND data_ważności = ?");
             psUpdate.setInt(1, product.getQuantity());
@@ -292,9 +305,8 @@ public class DBUtils {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/sklep", "root", ""
-            );
+            connection = getConnection();
+
 
             String query = "SELECT * FROM grafik_pracy WHERE id_uzytkownika = ?";
             preparedStatement = connection.prepareStatement(query);
@@ -366,8 +378,7 @@ public class DBUtils {
         ResultSet resultSet = null;
 
         try {
-            connection = getConnection(); // Zakładam, że masz odpowiednią metodę getConnection() w klasie DBUtils
-
+            connection = getConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT id FROM uzytkownik");
 
@@ -464,9 +475,8 @@ public class DBUtils {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/sklep", "root", ""
-            );
+            connection = getConnection();
+
 
             statement = connection.createStatement();
             String query;
@@ -496,9 +506,7 @@ public class DBUtils {
         return productList;
     }
 
-    private static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/sklep", "root", "");
-    }
+
 
 
 
